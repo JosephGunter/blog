@@ -1,3 +1,4 @@
 name: andrewsturges.com
 markdown: redcarpet
 pygments: true
+baseurl: /andrewsturges
