@@ -89,37 +89,46 @@ dynamically generated on the GitHub server when we activate GitHub pages. In
 fact, `jekyll new <site_name>` command creates a .gitignore file with one line
 for _site, so it's ignored by default.
 
-## Preparing for deployment to GitHub project mate
+Preparing for deployment to GitHub project mate
+--------------------------------------------------
 If we look at the url for our locally served site, we see something like this:
-http://localhost:4000/jekyll/update/2013/09/15/welcome-to-jekyll.html
 
-This is slightly different from how GitHub pages will try to resolve the urls.
+    http://localhost:4000/jekyll/update/2013/09/15/welcome-to-jekyll.html
+We have the host (localhost:4000), then the rest of the url (jekyll/update...).
+This is slightly different from how GitHub pages will try to resolve the urls,
+which is like this:  
+
+    http://arsturges.github.io/andrewsturges/jekyll/update/2013/09/15/welcome-to-jekyll.html  
+Notice there's the host (arsturges.github.io), then the name of the repository
+(andrewsturges), THEN the rest of the url (/jekyll/update...).
 To account for this, we need to take the following steps:
-1. Edit the file `_config.yml` to include the following line:
-{% highlight yaml %}
-baseurl: /andrewsturges
+
+1.  Edit the file `_config.yml` to include the following line:  
+{% highlight ruby %}
+    baseurl: /andrewsturges
 {% endhighlight %}
 
-2. Change internal links
-Any internal links, whether to static assets like CSS files or links between
-html pages, need to have this new baseurl prepended. We can do this by adding
-`{{ site.baseurl}}`. Here's a before-and-after from the file _layouts/default.html:
-Before:
+2.  Change internal links  
+    Any internal links, whether to static assets like CSS files or links between
+    html pages, need to have this new baseurl prepended. We can do this by adding
+    `{{ site.baseurl}}`. Here's a before-and-after from the file _layouts/default.html:  
+    Before:    
 {% highlight html %}
-<link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/syntax.css">
 {% endhighlight %}
-After:
+    After:  
 {% highlight html %}
-<link rel="stylesheet" href="{{ site.baseurl}}/css/syntax.css">
+    <link rel="stylesheet" href="{{ site.baseurl}}/css/syntax.css">  
 {% endhighlight %}
+    You may have to do this to files in _layouts, as well as index.html.
 
-3. Run the local server with the `--baseurl ''` flag
-Now when we run the local server, we don't want it to append '/andrewsturges'
-to everything, so we have to override the _config.yml setting. To start a 
-jekyll local server, we now do this:
-{% highlight bash %}
-jekyll server --baseurl ''  
-{% endhighlight %}
+3.  Run the local server with the `--baseurl ''` flag  
+    Now when we run the local server, we don't want it to append '/andrewsturges'
+    to everything, so we have to override the _config.yml setting. To start a 
+    jekyll local server, we now do this:
+    {% highlight bash %}
+    jekyll server --baseurl ''  
+    {% endhighlight %}
 
 ## Deploying to GitHub
 We're going to deploy as a GitHub "project page", rather than a GitHub "user and
