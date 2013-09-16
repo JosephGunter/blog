@@ -49,7 +49,35 @@ When you run the command `jekyll new my_blog`, it creates a new folder called
 I want my blog to be its own git repository, called 'andrewsturges'. So I'm
 going to initialize a new repo from inside the project folder:
 {% highlight bash %}
+➜  andrewsturges  git init .
+Initialized empty Git repository in /Users/andrewsturges/andrewsturges/.git/
+➜  andrewsturges git:(master) ✗ git add .
+➜  andrewsturges git:(master) ✗ git commit -m "first jekyll commit"
+[master (root-commit) a821078] first jekyll commit
+ 9 files changed, 378 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 _config.yml
+ create mode 100644 _layouts/default.html
+ create mode 100644 _layouts/post.html
+ create mode 100644 _posts/2013-09-15-hosting-a-jekyll-blog-on-github.md
+ create mode 100644 _posts/2013-09-15-welcome-to-jekyll.markdown
+ create mode 100755 css/main.css
+ create mode 100644 css/syntax.css
+ create mode 100644 index.html
+➜  andrewsturges git:(master) git remote add origin git@github.com:arsturges/andrewsturges.git
+➜  andrewsturges git:(master) git push -u origin master
+Counting objects: 14, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (13/13), done.
+Writing objects: 100% (14/14), 4.47 KiB, done.
+Total 14 (delta 0), reused 0 (delta 0)
+To git@github.com:arsturges/andrewsturges.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
 {% endhighlight %}
+NB: I'm using the Z shell (zsh) via [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh), which provides the cute arrow prompt
+as well as some git-aware prompting. You can safely ignore all of this. For
+our purposes, the commands you type are after the '➜ '.
 
 ## The _site folder
 The _site folder is managed by the `jekyll` program. We don't need to edit it
@@ -57,8 +85,29 @@ or worry about it all. It contains the HTML that actually gets served, but it's
 updated each time we change the files in the rest of the directory structure.
 In other words, that folder is dynamically re-generated whenever we change our
 project. It won't get added to the GitHub repository, because it will be 
-dynamically generated on the GitHub server when we activate GitHub pages.
+dynamically generated on the GitHub server when we activate GitHub pages. In
+fact, `jekyll new <site_name>` command creates a .gitignore file with one line
+for _site, so it's ignored by default.
 
 ## Deploying to GitHub
 We're going to deploy as a GitHub "project page", rather than a GitHub "user and
-organization page". You can read about the difference in Jekyll's [GitHub Pages documentation](http://jekyllrb.com/docs/github-pages/).
+organization page". You can read about the difference in Jekyll's [GitHub Pages 
+documentation](http://jekyllrb.com/docs/github-pages/). Suffice it to say, this
+blog will have its own dedicated repository called 'andrewsturges'.
+
+We've already created the jekyll site, made it into a git repository, and pushed
+it to GitHub under the master branch (the default branch). To actually get it
+published on GitHub, we need to push our jekyll site to a branch named gh-pages:
+
+{% highlight bash %}
+➜  andrewsturges git:(master) ✗ git branch gh-pages
+➜  andrewsturges git:(master) ✗ git checkout gh-pages 
+M   _posts/2013-09-15-hosting-a-jekyll-blog-on-github.md
+Switched to branch 'gh-pages'
+➜  andrewsturges git:(gh-pages) ✗ git push origin gh-pages
+Total 0 (delta 0), reused 0 (delta 0)
+To git@github.com:arsturges/andrewsturges.git
+ * [new branch]      gh-pages -> gh-pages
+{% endhighlight %}
+
+Nnow navigate to [http://arsturges.github.io/andrewsturges/](http://arsturges.github.io/andrewsturges/) and you should see the site.
