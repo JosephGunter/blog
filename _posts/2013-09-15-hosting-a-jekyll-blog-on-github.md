@@ -44,6 +44,24 @@ When you run the command `jekyll new my_blog`, it creates a new folder called
 │   └── syntax.css
 └── index.html
 {% endhighlight %}
+A few things to note. First, you can ignore the entire `_site` directory.
+The jekyll internals deal with that. Second, it gives you a _config.yml file
+that has some pre-filled configuration options. These are directives that you
+could otherwise include at the jekyll command line when you start the server.
+For example, if in the _config.yml file you have the line
+{% highlight ruby %}
+favorite_color: green
+{% endhighlight %}
+then you could equivalently at the command line type
+{% highlight bash %}
+$ jekyll server --favorite_color 'green'
+{% endhighlight %}
+Third, it comes with some default CSS files. These are useable as-is, but probably
+incomplete. For example, all headings h1 through h6 are identical. Fourth, it
+has a _layouts folder, meaning you can modularize things like headers and
+footers. Finally, notice that there's no _drafts folder. You can either create
+one, or just keep your drafts in the master branch, and move them to the gh-pages
+branch when they're ready to be published.
 
 ##Make this folder into a Git repository
 I want my blog to be its own git repository, called 'andrewsturges'. So I'm
@@ -151,4 +169,25 @@ To git@github.com:arsturges/andrewsturges.git
  * [new branch]      gh-pages -> gh-pages
 {% endhighlight %}
 
-Nnow navigate to [http://arsturges.github.io/andrewsturges/](http://arsturges.github.io/andrewsturges/) and you should see the site.
+Now navigate to [http://arsturges.github.io/andrewsturges/](http://arsturges.github.io/andrewsturges/) and you should see the site.
+
+## Conclusion and Summary
+The full list of steps looks something like this:
+
+1. `$ gem install jekyll`
+1. `$ jekyll new andrewsturges`
+1. `$ cd andrewsturges`
+1.  Create github repository called 'andrewsturges' to hold this blog
+1. `$ git init .`
+1. Add `baseurl: /andrewsturges` to _config.yml, and prepend `\{\{ baseurl\}\}` to
+   internal links
+1. `$ jekyll server --baseurl ''` to run local server; view at localhost:4000
+1. `$ git add .`
+1. `$ git commit -m "first jekyll commit"`
+1. `$ git remote add origin git@github.com:arsturges/andrewsturges.git`
+1. `$ git push -u origin master`
+1. `$ git branch gh-pages`
+1. `$ git checkout gh-pages`
+1. `$ git push origin gh-pages` This will trigger GitHub to run a `jekyll build`
+   on whatever is in your _posts folder, creating a new _site which gets
+   published at [http://arsturges.github.io/andrewsturges/](http://arsturges.github.io/andrewsturges/).
