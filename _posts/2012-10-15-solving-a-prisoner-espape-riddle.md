@@ -181,13 +181,7 @@ first converting the `list` to a Numpy `array`:
 
 {% highlight python %}
 import numpy
-{% endhighlight %}
-
-{% highlight python %}
 array = numpy.array(list)
-{% endhighlight %}
-
-{% highlight python %}
 average = numpy.mean(array)
 {% endhighlight %}
 
@@ -199,7 +193,6 @@ $ python prisoner3.py
 2720.895
 {% endhighlight %}
 
-The next iteration of the code will include this small refactorization.
 Now, instead of one experiment, this result represents the average of 1000
 experiments.
 
@@ -208,7 +201,7 @@ So what?
 
 So on average, it would take 50 prisoners in this scenario 2721 days to earn
 their release. Cool. Neat. But this raises so many more questions: Is this number
-related to the probability of 1/50)*(1/50)? Where is this average value in the
+related to the probability of 1/50)x(1/50)? Where is this average value in the
 range of values yielded from the 1000 results? If we halve the number of prisoners,
 will the number of days go down by half? What does a histogram of the results look
 like? The answers, as well as a more in-depth discussion of other statistics,
