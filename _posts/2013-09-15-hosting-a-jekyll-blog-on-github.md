@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Starting a Jekyll-Powerd Blgo and Hosting it on Github
-date:   2013-09-15 23:25:51
+title: Starting a Jekyll-Powered Blog and Hosting it on Github
+date: 2013-09-15 23:25:51
 categories: jekyll tutorial
 ---
 In this post I'll go through how to set up a Jekyll blog and host it on Github.

@@ -9,7 +9,6 @@ twitter_username: andrewsturges
 github_username:  arsturges
 
 # Build settings
-markdown: kramdown
-#markdown: redcarpet
+markdown: redcarpet
 #pygments: true
 #baseurl: /andrewsturges
