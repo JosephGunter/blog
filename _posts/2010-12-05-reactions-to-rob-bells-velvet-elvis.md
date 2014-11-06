@@ -36,7 +36,7 @@ eat, reach out, listen, and pray. I am one of those people, and I do all of thos
 things, so how I do them is part of what defines my church. My church is,
 literally, whatever I make it.
 
-![Cover of Rob Bell's Velvet Elvis](/assets/velvet_elvis.jpg)
+![Cover of Rob Bell's Velvet Elvis](assets/velvet_elvis.jpg)
 
 The second important point that the book drove home for me was the concept of
 unconditional service as evangelism. From page 167:
