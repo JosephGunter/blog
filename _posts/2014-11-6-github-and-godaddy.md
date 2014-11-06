@@ -15,10 +15,10 @@ GoDaddy.com domain name andrewsturges.com.
 In brief, the steps are as follows:
 
 1. Set up my user page arsturges.github.io
-1. Commit a file called CNAME with one line `andrewsturges.com`
-1. Go to GoDaddy site to manage my URL.
-1. Add an "A (Host)" record with "host" = @ and "Points to" = 192.30.252.153
-1. Add a "CNAME (Alias)" record with "host = `www` and "Points to" = arsturges.github.io
+1. Commit a file called CNAME with one line: `andrewsturges.com`
+1. Go to GoDaddy site to manage my URL
+1. Add an "A (Host)" record with "host" = `@` and "Points to" = `192.30.252.153`
+1. Add a "CNAME (Alias)" record with "host" = `www` and "Points to" = `arsturges.github.io`
 1. Wait for changes to propogate.
 
 Below i'll go over these steps in detail. 
@@ -58,8 +58,21 @@ Add a single CNAME record as follows:
 
 ![GoDaddy CNAME record]({{site.url}}{{site.baseurl}}/assets/cname_record.png)
 
+That's all I did with GoDaddy. I didn't change anything else, including the 
+Nameserver (NS) records.
+
 6. Wait for changes to propogate
 ----------------------
 
 When the DNS updates, you should be able to navigate to your custom domain and
-see your pages.github.io page.
+see your pages.github.io page. You can check your work with the following command,
+and compare to my results:
+
+```bash
+$ dig andrewsturges.com +nostats +nocomments +nocmd
+
+; <<>> DiG 9.8.3-P1 <<>> andrewsturges.com +nostats +nocomments +nocmd
+;; global options: +cmd
+;andrewsturges.com.             IN      A
+andrewsturges.com.      3600    IN      A       192.30.252.153
+```
