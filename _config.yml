@@ -3,7 +3,7 @@ title: "Andrew's blog."
 email: asturges@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
     Andrew Sturges. Blog. Hi.
-baseurl: "/blog" # the subpath of your site, e.g. /blog/
+#baseurl: "/blog" # the subpath of your site, e.g. /blog/
 url: "http://andrewsturges.com/blog/" # the base hostname & protocol for your site
 twitter_username: andrewsturges
 github_username:  arsturges
