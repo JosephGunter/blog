@@ -55,6 +55,8 @@ Seek to create simple models. Over-elaboration can be the mark of mediocrity.
 The statistician must practice in the field and set himself up to be directly involved in 
 real-life theory-practice iterations.
 
+![Page 1 of the journal article]({{site.url}}{{site.baseurl}}/assets/science_and_statistics.png)
+
 3 Fisher--A Scientist
 -------------------
 
