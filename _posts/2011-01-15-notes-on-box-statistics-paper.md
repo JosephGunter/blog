@@ -57,6 +57,8 @@ real-life theory-practice iterations.
 
 ![Page 1 of the journal article]({{site.url}}{{site.baseurl}}/assets/science_and_statistics.png)
 
+Image source: http://www.jstor.org/discover/10.2307/2286841
+
 3 Fisher--A Scientist
 -------------------
 
