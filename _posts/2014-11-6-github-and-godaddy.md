@@ -3,6 +3,7 @@ layout: post
 title: Configuring a Godaddy domain name with github pages
 date: 2014-11-06
 categories: jekyll tutorial
+comments: true
 ---
 I own a custom domain through GoDaddy.com that I want to use for my user page
 at arsturges.github.io.
