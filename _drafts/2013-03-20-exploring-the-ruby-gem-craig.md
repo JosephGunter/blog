@@ -185,7 +185,7 @@ to format the output):
 ```
 This is a huge list, and it's worth taking a moment to compare it to the Craigslist.org homepage to see what we're looking at.
 
-[INSERT IMAGE HERE--craigstlist homepage.png]
+![Craigslist page screenshot]({{ site.url }}{{ site.baseurl }}/assets/craigslist_motorcycle_listing.png)
 
 Take just the "A's" from the categories list returned by the craigslist gem and see where everything comes from.
 
@@ -237,7 +237,7 @@ However, if we look at the corresponding Craigslist.org page, we see something s
 The items returned by the craigslist gem are present, but they're not the most recent items.
 The below image shows a screenshot of the Craigslist.org page, with the items returned by the craigslist gem surrounded by a black rectangle.
 
-[INSERT IMAGE HERE moto listings]
+![screenshot of craigslist showing motorcycle results]({{ site.url }}{{ site.baseurl }}/assets/craigslist_motorcycle_listing.png)
 
 I don't know why these don't correspond exactly, but the fact that they don't is something to be aware of.
 
