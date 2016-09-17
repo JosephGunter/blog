@@ -266,7 +266,7 @@ A glance at the method names shows where the cities, city?, categories, and last
 Under CATEGORIES on line 49, we can see the build_uri() and more_results() methods, which are called by last().
 A glance through last() shows that it builds a Craigslist.org-style URL (e.g. sfbay.craigslist.org/mca)
 and then uses [Nokogiri](http://nokogiri.org/) to parse and return the results.
-(To see how Nokogiri works, check the documentation or read [my blog post about using Nokogiri to scrape a web site](http://www.andrewsturges.com/2011/09/how-to-harvest-web-data-using-ruby-and.html).)
+(To see how Nokogiri works, check the documentation or read [my blog post about using Nokogiri to scrape a web site](http://andrewsturges.blogspot.com/2011/09/how-to-harvest-web-data-using-ruby-and.html).)
 
 That's it. By reading through the source code, we see that the main and only functionality of the craigslist gem is to take a
 city and category and use the `last()` method to return some number of recent results from the corresponding Craigslist.org page.

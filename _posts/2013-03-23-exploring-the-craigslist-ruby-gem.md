@@ -16,15 +16,19 @@ Install craigslist
 ---------------
 
 Installation is like any other gem. In a terminal type:
+
 ```
 $ gem install craig
 ```
+
 Now enter an Interactive Ruby session and see if it worked.
+
 ```
 $ irb --simple-prompt
 >> require 'craig'
 => true
 ```
+
 If it returned 'true', then installation was successful.
 
 Use it to find some motorcycles
@@ -35,21 +39,28 @@ Check [craig/lib/cities.rb](https://github.com/danneu/craig/blob/master/lib/crai
 city is spelled/puntuated, and [craig/lib/categories.rb](https://github.com/danneu/craig/blob/master/lib/craig/categories.rb) to 
 see what categories are available.
 In `categories.rb` I searched for 'motorcycle', and found this line:
+
 ```
 'motorcycles' => 'mca'
 ```
+
 This means that craig will expect just the word motorcycles, and will translate it to 'mca' for Craigslist.org.
 In cities.rb I searched 'francisco' and found this line:
+
 ```
 "san_francisco_bay_area" => "sfbay"
 ```
+
 This means that craig will expect `:san_francisco_bay_area` and will translate it to 'sfbay'.
 With this in mind, I can construct my search phrase:
+
 ```
 motorcycles = Craig.query(:san_francisco_bay_area, :for_sale => :motorcycles)
 ```
+
 This returns a Ruby array, which I hold it in a variable called motorcycles.
 Since it's an array, I can select an individual array item with indexing.
+
 ```
 >> motorcycles[2]
 => {
@@ -68,6 +79,7 @@ Since it's an array, I can select an individual array item with indexing.
 >> motorcycles[2].price
 => 14000
 ```
+
 The first line returns a complete listing.
 Each listing element can accessed by appending it with a dot to the listing object, as demonstrated above.
 For this Harley example, note that this is not scraping or accessing the actual Craigslist ad page for this Harley.
