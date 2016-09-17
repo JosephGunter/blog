@@ -42,6 +42,7 @@ Use craigslist
 
 Let's see what categories are available (I'm requiring [pretty print](http://www.ruby-doc.org/stdlib-2.0/libdoc/pp/rdoc/PP.html#method-c-pp)
 to format the output):
+
 ```
 >> require 'pp'
 >> Craigslist.categories
@@ -183,6 +184,7 @@ to format the output):
  "writing",
  "writing_editing"]
 ```
+
 This is a huge list, and it's worth taking a moment to compare it to the Craigslist.org homepage to see what we're looking at.
 
 ![Craigslist page screenshot]({{ site.url }}{{ site.baseurl }}/assets/craigslist_motorcycle_listing.png)
@@ -203,6 +205,7 @@ Take just the "A's" from the categories list returned by the craigslist gem and 
  "auto_parts",
  "automotive",
 ```
+
 Notice that just among the "A's", `accounting_finance`, `admin_office`, `arch_engineering`, and `art_media_design`
 come from the "jobs" heading, `activities` comes from the "community" heading, `antiques`, `appliances`, `arts_crafts`,
 and `auto_parts` come from the "for sale" heading, and `automotive` comes from the "services" heading. There are a few things to notice:
@@ -214,6 +217,7 @@ and `auto_parts` come from the "for sale" heading, and `automotive` comes from t
 Search with craigslist
 ----------------------
 Now let's do some searching through the "motorcycles" category.
+
 ```
 >> pp Craigslist.sf_bayarea.motorcycles.last(3)
 [{"text"=>"Alpinestar Jacket US36 EU46",
@@ -232,6 +236,7 @@ Now let's do some searching through the "motorcycles" category.
   "has_img"=>false,
   "has_pic"=>true}]
 ```
+
 This search returned the most recent 3 items from the SF Bay Area motorcycles listing.
 However, if we look at the corresponding Craigslist.org page, we see something slightly different.
 The items returned by the craigslist gem are present, but they're not the most recent items.
@@ -273,12 +278,14 @@ Summary
 The craigslist gem has the capability to take a city and Craigslist.org category as arguments, and return a well-structured
 Ruby array of text scraped from the corresponding Craigslist.org page.
 The main and virtually only functionality is as follows:
+
 ```
 $ irb
 >> require 'craigslist'
 => true
 >> Craigslist.sf_bayarea.motorcycles.last(100)
 ```
+
 It is a robust but limited gem.
 Query refinements are not possible, and further processing or analysis of the returned values is done outside the craigslist gem.
 Thanks are due to [Greg Stallings](https://github.com/gregstallings) for his work on the gem, and for releasing it as open source.
